@@ -13,11 +13,12 @@ import random  # библиотека функций для генерации �
 # Сторонние библиотеки
 import numpy as np  # библиотека функций для работы с матрицами
 
-# Гиперпараметры обучения для MNIST (значения из task.txt и методички)
-LAYER_SIZES = [784, 30, 10]  # размеры слоев: 784 входа (28x28), 30 скрытых, 10 выходов
-EPOCHS = 30  # число эпох обучения
-MINI_BATCH_SIZE = 10  # размер мини-пакета
-LEARNING_RATE = 3.0  # скорость обучения
+# Значения по умолчанию для запусков (используются в run_tests.py как пример;
+# конкретные параметры каждого теста заданы списком TESTS в run_tests.py)
+DEFAULT_SIZES = [784, 30, 10]  # размеры слоев: 784 входа (28x28), 30 скрытых, 10 выходов
+DEFAULT_EPOCHS = 30  # число эпох обучения
+DEFAULT_MINI_BATCH_SIZE = 10  # размер мини-пакета
+DEFAULT_LEARNING_RATE = 3.0  # скорость обучения
 
 
 """ ---Раздел описаний--- """
@@ -133,16 +134,17 @@ class Network(object):  # используется для описания не�
         return (output_activations - y)
 """ --Конец описания класса Network--"""
 """ --- Конец раздела описаний--- """
-""" ---Тело программы--- """
-net = Network([2, 3, 1])  # создаем нейронную сеть из трех слоев
-""" ---Конец тела программы--- """
-""" Вывод результата на экран: """
-print('Сеть net:')
-print('Количество слоев:', net.num_layers)
-for i in range(net.num_layers):
-    print('Количество нейронов в слое', i, ':', net.sizes[i])
-for i in range(net.num_layers-1):
-    print('W_', i+1, ':')
-    print(np.round(net.weights[i], 2))
-    print('b_', i+1, ':')
-    print(np.round(net.biases[i], 2))
+""" ---Тело программы (демо из методички, только при прямом запуске)--- """
+if __name__ == "__main__":
+    net = Network([2, 3, 1])  # создаем нейронную сеть из трех слоев
+    """ ---Конец тела программы--- """
+    """ Вывод результата на экран: """
+    print('Сеть net:')
+    print('Количество слоев:', net.num_layers)
+    for i in range(net.num_layers):
+        print('Количество нейронов в слое', i, ':', net.sizes[i])
+    for i in range(net.num_layers-1):
+        print('W_', i+1, ':')
+        print(np.round(net.weights[i], 2))
+        print('b_', i+1, ':')
+        print(np.round(net.biases[i], 2))
