@@ -18,7 +18,7 @@ b_ 2 :
 Тест: T5 два слоя
 Топология: [784, 10] Эпохи: 30 Пакет: 10 Скорость: 100.0
 Epoch 0: 1951 / 10000
-/home/and-zam/Документы/files/unik/4_курс/deep_learning/practical-2/network.py:26: RuntimeWarning: overflow encountered in exp
+network.py:26: RuntimeWarning: overflow encountered in exp
   return 1.0 / (1.0 + np.exp(-z))
 Epoch 1: 2850 / 10000
 Epoch 2: 2555 / 10000
